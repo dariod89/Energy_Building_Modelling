@@ -1,2 +1,4 @@
-# Energy_Building_Modelling
-Modelling of consumption of energy (gas and electricity) in a property, and subsequent emulation of this as a function of various parameters.
+# Introduction
+The present repository will contain the work and code developed within a collaboration between Mohammad Royapoor of the University of Newcastle and myself (alongside Hailiang Du and Michael Goldstein). The collaboration has only recently started and the content of the repository is therefore partial and subject to changes.
+
+A computer model is available, which simulates the energy consumption (gas and electricity) in a property. Data on actual consumption are available. Via Gaussian process emulation, the aim is to find the parameters of the model which yield to compatibility between model predictions and data, while accounting for the uncertainties affecting both sources (measurement errors, necessarily incorrect modelling of the house, discrepancy between simulator and real world).
