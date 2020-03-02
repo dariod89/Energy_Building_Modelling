@@ -92,9 +92,10 @@ Interactions <- poly(data.matrix(Inputs), degree=2)
 
 month<-1
 y <- Outputs_Gas[, month]
+
 # The next line considers linear models with different number of covariates (from 1 to nvmax), 
-# and selects best model of each size
-# (for fixed size, best model is the same regardless of criterion used - adjr2, Cp etc)
+# and selects best model of each size (for fixed size, best model is the same 
+# regardless of criterion used - adjr2, Cp etc)
 L <- summary(regsubsets(y~., data=Interactions, method = "exhaustive", nvmax = 8))
 ind <- which.max(L$adjr2)  # index (between 1 and nvmax) of model with max adj-R2
 regr <- L$which[ind,-1]    # logical vector with regressors corresponding to selected model
