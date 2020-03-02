@@ -1,4 +1,4 @@
-# This function computes the correlation between NxM pairs of k-dimensional inputs. 
+# This function computes the correlation between NxM pairs of k-dimensional inputs (details below). 
 # Correlation lengths must be provided in vector d. The input 'string' specifies which correlation function to use.
 #
 # INPUTS:
