@@ -80,26 +80,26 @@ corr.fun2 <- function(X, Y, d, string){
 # predicted distribution (mean and variance) for the output corresponding to the  left-out point.
 
 Cross_Val <- function(Design.par.full, Design.regr.full, y.full, beta, Cov.beta, d, nu, sigma2, string){
-  N <- dim(Design.par.full)[1]
-  p <- dim(Design.par.full)[2]
-  q <- dim(Design.regr.full)[2]
+  N <- dim(Design.par.full)[1]    # Number of design points
+  p <- dim(Design.par.full)[2]    # Dimension of each design point
+  q <- dim(Design.regr.full)[2]   # Number of regressors used
   
   ind.full <- 1:N
   
-  M <- array(dim=c(N,1))
-  V <- array(dim=c(N,1))
+  M <- array(dim=c(N,1))          # M[i] will contain predicted emulator mean at design point i
+  V <- array(dim=c(N,1))          # V[i] will contain predicted emulator variance at design point i
   
   for (i in 1:N){
-    ind <- ind.full[-i]
-    Design.par  <- Design.par.full[ind, , drop=FALSE]
-    Design.regr <- Design.regr.full[ind, , drop=FALSE]
-    test.par    <- Design.par.full[i, , drop=FALSE]
-    test.regr   <- Design.regr.full[i, , drop=FALSE]
+    ind <- ind.full[-i]                                  
+    Design.par  <- Design.par.full[ind, , drop=FALSE]    # remove i-th design point
+    Design.regr <- Design.regr.full[ind, , drop=FALSE]   # store i-th design point as new point for prediction
+    test.par    <- Design.par.full[i, , drop=FALSE]      # same as above, but with regressors... #
+    test.regr   <- Design.regr.full[i, , drop=FALSE]     #    ...rather than design points       #
     y <- y.full[ind]
     
-    res <- emul(test.par, test.regr, Design.par, Design.regr, y, beta, Cov.beta, d, nu, sigma2, string)
-    M[i] <- res$Mean
-    V[i] <- res$Variance
+    res <- emul(test.par, test.regr, Design.par, Design.regr, y, beta, Cov.beta, d, nu, sigma2, string) # build emulator
+    M[i] <- res$Mean               # store its mean
+    V[i] <- res$Variance           # store its variance
   }
   
   return( list("Mean"=M, "Variance"=V) )
