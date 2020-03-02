@@ -73,7 +73,6 @@ input_ranges[2,7]<-2.20e-05
 input_ranges[1,8]<-1.05     # Cooking [W/m2]
 input_ranges[2,8]<-6.3
 
-
 # ... and rescale the input variables within these
 for (i in 1:N_var){
   a <- input_ranges[1,i]
