@@ -3,7 +3,7 @@
 #
 # INPUTS:
 # X:      Nxk matrix of N k-dim vectors
-# Y:      Mxk matrix of N k-dim vectors
+# Y:      Mxk matrix of M k-dim vectors
 # d:      k-dim vector of positive correlation lengths
 # string: a string specifying which correlation function to use.
 #         One of: 'exp2', ... (others will be added later)
