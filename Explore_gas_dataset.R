@@ -109,6 +109,7 @@ colnames(Inputs) <- c('V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8')
 # CARRY OUT EMULATION BASED ON REGRESSORS AND INTERACTIONS SELECTED ABOVE
 ###########################################################################
 
+# Mean and Variance of coefficients used in prior mean
 beta <- fit$coefficients
 Cov.beta <- vcov(fit)
 
