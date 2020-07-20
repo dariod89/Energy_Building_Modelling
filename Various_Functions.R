@@ -18,7 +18,7 @@
 #
 #                  A[i,j]=exp(-S), 
 #
-# where S is the sum of the squares of the k components of the vector z = (X[i,]-Y[,j])./d  
+# where S is the sum of the squares of the k components of the vector z = (X[i,]-Y[j,])./d  
 # ("./" denotes division component by component). Ie, S = sum of z[h]^2  for h=1, ...k.
 #
 # A slower but straightforward-to-interpret version of the same function, implemented via two nested for loops,
